@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PassMan Pricing Table</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <style>
+
+        :root {
+            --color-passman-green: #A6C549;
+            --color-passman-green-lighter: rgba(166,197,73,.2);
+            --color-font-general: #556274;
+            --color-column-header-bg: #fefefe;
+            --color-gray-border: rgb(212, 212, 212);
+            --color-darker-row-bg: rgb(249, 249, 249);
+        }
+
+        body {
+            margin: 0;
+            padding: 100px;
+            width: 100%;
+            font-family: 'Raleway', sans-serif;
+            color: var(--color-font-general);
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .passman-green-color {
+            color: var(--color-passman-green);
+        }
+
+        .pricing-wrapper {
+
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+
+        }
+
+        .pricing-wrapper a {
+
+            text-decoration: none;
+            color: inherit;
+
+        }
+
+        .pricing-wrapper h3,
+        .pricing-wrapper h4,
+        .pricing-wrapper h6 {
+
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .pricing-column-details-wrapper > header,
+        .pricing-column-wrapper > header
+        {
+            height: 325px;
+            box-sizing: border-box;
+        }
+
+        .pricing-column-details-wrapper > header {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            color: var(--color-passman-green);
+            font-size: 1.3rem;
+
+        }
+
+        .pricing-column-details-wrapper > main {
+
+            border: 1px solid rgb(212, 212, 212);
+
+        }
+
+        .pricing-column-details-wrapper > main,
+        .pricing-column-wrapper > main
+        {
+
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .pricing-column-details-wrapper > main > span,
+        .pricing-column-wrapper > main > span
+        {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 54px;
+
+        }
+
+        .pricing-column-wrapper:last-of-type > main > span,
+        .pricing-column-wrapper:nth-of-type(2) > main > span,
+        .pricing-column-wrapper:nth-of-type(2) > footer,
+        .pricing-column-wrapper:last-of-type > footer {
+
+            border-right: 1px solid var(--color-gray-border);
+
+        }
+
+        .pricing-column-wrapper:nth-of-type(3) > main > span,
+        .pricing-column-wrapper:nth-of-type(2) > footer,
+        .pricing-column-wrapper:nth-of-type(3) > footer {
+
+            border-left: 1px solid var(--color-gray-border);
+
+        }
+
+        .pricing-column-details-wrapper > main > span:nth-of-type(2n),
+        .pricing-column-wrapper > main > span:nth-of-type(2n) {
+
+            background: var(--color-darker-row-bg);
+
+        }
+        .pricing-column-details-wrapper > main > span:nth-of-type(6),
+        .pricing-column-wrapper > main > span:nth-of-type(6) {
+
+            border-top: 1px solid var(--color-gray-border);
+            background: unset !important;
+
+        }
+        .pricing-column-wrapper.premium > main > span:nth-of-type(2n) {
+
+            background: var(--color-passman-green-lighter);
+
+        }
+
+        .pricing-column-details-wrapper > main > span {
+
+            font-size: .8rem;
+            font-weight: bold;
+            justify-content: flex-start;
+            padding-left: 15px;
+
+        }
+
+        .pricing-column-wrapper,
+        .pricing-column-details-wrapper {
+
+            flex-grow: 1;
+
+        }
+
+        .pricing-column-wrapper {
+
+            position: relative;
+
+        }
+
+        .pricing-column-wrapper.cloud {
+            margin-right: 30px;
+        }
+
+        .pricing-column-wrapper.premium > header {
+            border: 1px solid transparent;
+            box-shadow: 0px -1px 13px -2px var(--color-passman-green);
+        }
+
+        .pricing-column-wrapper.premium::before {
+            display: block;
+            content: "";
+            position: absolute;
+            top: -18px;
+            width: 100%;
+            height: 15px;
+            border: 1px solid var(--color-passman-green);
+            background: var(--color-passman-green);
+        }
+
+        .pricing-column-wrapper > header {
+
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--color-column-header-bg);
+            padding: 40px 30px 30px;
+            border: 1px solid var(--color-gray-border);
+            cursor: pointer;
+            transition: border 200ms ease-in;
+
+        }
+
+        .pricing-column-wrapper > header:hover {
+
+            border: 1px solid var(--color-passman-green);
+
+        }
+
+        footer > a.ask-for-price-quote-btn.outline:hover,
+        .pricing-column-wrapper > header:hover a.ask-for-price-quote-btn.outline {
+
+            background: var(--color-passman-green);
+            color: white;
+
+        }
+
+        .pricing-column-wrapper > a {
+
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .package-title {
+            position: relative;
+            font-weight: bold;
+            font-size: 1.8rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        .package-title.server::before {
+
+            display: block;
+            content: 'Server';
+            position: absolute;
+            bottom: 3.7rem;
+            font-size: .9rem;
+
+        }
+
+        .package-title::after {
+
+            display: block;
+            font-size: 1rem;
+            font-weight: normal;
+            color: var(--color-passman-green);
+            padding-top: 10px;
+
+        }
+        .package-title.max-10::after {
+
+            content: 'Starts at maximum 10 users';
+
+        }
+        .package-title.max-25::after {
+
+            content: 'Starts at maximum 25 users';
+
+        }
+
+        h4.price-from-label {
+            position: relative;
+            text-align: center;
+            font-size: 1.3rem;
+            padding: 20px;
+        }
+
+        h4.price-from-label::before {
+
+            display: block;
+            content: "from";
+            font-size: 1rem;
+            top: 10px;
+
+        }
+
+        h4.price-from-label.custom::before {
+
+            display: block;
+            content: "custom";
+            font-size: 1rem;
+            top: 10px;
+
+        }
+
+        a.ask-for-price-quote-btn {
+
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: .05rem;
+            font-weight: bold;
+            font-size: .9rem;
+            text-align: center;
+            display: block;
+            background: var(--color-passman-green);
+            border-radius: 5px;
+            padding: 20px;
+            transition: 300ms all ease-in-out;
+
+        }
+
+        a.ask-for-price-quote-btn.outline {
+            background: unset;
+            border: 2px solid var(--color-passman-green);
+            color: var(--color-passman-green);
+        }
+
+        a.ask-for-price-quote-btn:hover {
+            opacity: .8;
+        }
+
+        footer > a.ask-for-price-quote-btn {
+
+            margin: 20px;
+
+        }
+
+        footer > a.ask-for-price-quote-btn.outline:hover {
+
+            margin: 20px;
+
+        }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            .pricing-column-details-wrapper {
+                display:none;
+            }
+            .hide-on-mobile {
+                display: none !important;
+            }
+            .prefix-on-mobile {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: space-between !important;
+                padding: 0 10px;
+                box-sizing: border-box;
+            }
+            .prefix-on-mobile::before {
+                display: block;
+                content: "prefix";
+                font-weight: bold;
+            }
+            .pricing-column-wrapper,
+            .pricing-column-wrapper.cloud {
+                margin: 0 0 50px 0;
+                border-bottom: 1px solid var(--color-gray-border);
+            }
+            .pricing-column-wrapper.cloud main,
+            .pricing-column-wrapper.enterprise main {
+                border-left: 1px solid var(--color-gray-border);
+            }
+            .pricing-column-wrapper.enterprise .max-25::after {
+                display: none;
+            }
+            .pricing-column-wrapper.enterprise .max-25::before {
+                top: -.9rem;
+            }
+            .pricing-column-wrapper.enterprise .package-title {
+                color: var(--color-passman-green)
+            }
+            .pricing-column-wrapper.standard main {
+                border-right: 1px solid var(--color-gray-border);
+            }
+            .pricing-column-wrapper.premium .enhanced-support {
+                margin-bottom: 30px;
+                position: relative;
+            }
+            .pricing-column-wrapper.premium .enhanced-support::after {
+                position: absolute;
+                bottom: -15px;
+                left: 0;
+                display: block;
+                content: "";
+                width: 100%;
+                border-bottom: 1px double var(--color-gray-border);
+            }
+
+            .internal-servers::before {
+                content: "Connecting to internal servers"
+            }
+            .cluster-env::before {
+                content: "Cluster environment"
+            }
+            .enhanced-support::before {
+                content: "Enhanced support (7DA)"
+            }
+            .sla::before {
+                content: "Custom time-to-response (SLA)"
+            }
+            .ten-users::before {
+                content: "Up to 10 users"
+            }
+            .twenty-five-users::before {
+                content: "Up to 25 users"
+            }
+            .fifty-users::before {
+                content: "Up to 50 users"
+            }
+            .hundred-users::before {
+                content: "Up to 100 users"
+            }
+            .two-hundred-and-fifty-users::before {
+                content: "Up to 250 users"
+            }
+            .five-hundred-users::before {
+                content: "Up to 500 users"
+            }
+
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <article class="pricing-wrapper">
+
+        <section class="pricing-column-details-wrapper">
+
+            <header>
+
+                <h3>
+                    Priviliged.
+                </h3>
+                <h3>
+                    Password.
+                </h3>
+                <h3>
+                    Management.
+                </h3>
+
+            </header>
+
+            <main>
+
+                <span><u>SPECIAL FEATURES</u></span>
+                <span>Connecting to internal servers</span>
+                <span>Cluster environment</span>
+                <span>Enhanced support (7DA)</span>
+                <span>Custom time-to-response (SLA)</span>
+                <span><u>UP TO USERS BASED PRICES</u></span>
+                <span>10</span>
+                <span>25</span>
+                <span>50</span>
+                <span>100</span>
+                <span>250</span>
+                <span>500</span>
+
+            </main>
+
+        </section>
+
+        <section class="pricing-column-wrapper cloud">
+
+            <header>
+                <a href="#cloud">
+
+                    <h3 class="package-title max-10">
+
+                        Cloud <i class="material-icons md-24">cloud</i>
+
+                    </h3>
+
+                    <h4 class="price-from-label">
+                        8.900 HUF
+                    </h4>
+
+                    <a class="ask-for-price-quote-btn outline" href="#">
+                        Ask for a price quote
+                    </a>
+
+                </a>
+            </header>
+
+            <main>
+
+                <span class="hide-on-mobile"></span>
+                <span class="hide-on-mobile"></span>
+                <span class="hide-on-mobile"></span>
+                <span class="hide-on-mobile"></span>
+                <span class="hide-on-mobile"></span>
+                <span class="hide-on-mobile"></span>
+                <span class="prefix-on-mobile ten-users">8.900 HUF</span>
+                <span class="prefix-on-mobile twenty-five-users">12.900 HUF</span>
+                <span class="prefix-on-mobile fifty-users">20.900 HUF</span>
+                <span class="prefix-on-mobile hundred-users">32.900 HUF</span>
+                <span class="prefix-on-mobile two-hundred-and-fifty-users">66.900 HUF</span>
+                <span class="prefix-on-mobile five-hundred-users">106.900 HUF</span>
+
+            </main>
+
+            <footer class="hide-on-mobile">
+                <a class="ask-for-price-quote-btn outline" href="#">
+                    Ask for a price quote
+                </a>
+            </footer>
+
+
+        </section>
+
+        <section class="pricing-column-wrapper standard">
+
+            <a href="#server-standard">
+                <header>
+
+
+                    <h3 class="package-title server max-10">
+
+                        Standard
+
+                    </h3>
+
+                    <h4 class="price-from-label">
+
+                        8.900 HUF
+                    </h4>
+
+                    <a class="ask-for-price-quote-btn outline" href="#">
+                        Ask for a price quote
+                    </a>
+
+
+                </header>
+            </a>
+            <main>
+
+                <span class="hide-on-mobile"></span>
+                <span class="prefix-on-mobile internal-servers"><i class="material-icons passman-green-color">check_circle</i></span>
+                <span class="hide-on-mobile"></span>
+                <span class="hide-on-mobile"></span>
+                <span class="hide-on-mobile"></span>
+                <span class="hide-on-mobile"></span>
+                <span class="prefix-on-mobile ten-users">8.900 HUF</span>
+                <span class="prefix-on-mobile twenty-five-users">20.900 HUF</span>
+                <span class="prefix-on-mobile fifty-users">33.900 HUF</span>
+                <span class="prefix-on-mobile hundred-users">52.900 HUF</span>
+                <span class="prefix-on-mobile two-hundred-and-fifty-users">107.900 HUF</span>
+                <span class="hide-on-mobile"></span>
+
+            </main>
+
+            <footer class="hide-on-mobile">
+                <a class="ask-for-price-quote-btn outline" href="#">
+                    Ask for a price quote
+                </a>
+            </footer>
+
+
+        </section>
+
+        <section class="pricing-column-wrapper premium">
+
+            <a href="#server-premium">
+                <header>
+
+                    <h3 class="package-title server max-25">
+
+                        Premium
+
+                    </h3>
+
+                    <h4 class="price-from-label">
+
+                        59.900 HUF
+                    </h4>
+
+                    <a class="ask-for-price-quote-btn" href="#">
+                        Ask for a price quote
+                    </a>
+
+                </header>
+            </a>
+
+            <main>
+
+                <span class="hide-on-mobile"></span>
+                <span class="prefix-on-mobile internal-servers"><i class="material-icons passman-green-color">check_circle</i></span>
+                <span class="prefix-on-mobile cluster-env"><i class="material-icons passman-green-color">check_circle</i></span>
+                <span class="prefix-on-mobile enhanced-support"><i class="material-icons passman-green-color">check_circle</i></span>
+                <span class="hide-on-mobile"></span>
+                <span class="hide-on-mobile"></span>
+                <span class="hide-on-mobile"></span>
+                <span class="prefix-on-mobile _ twenty-five-users">59.900 HUF</span>
+                <span class="prefix-on-mobile _ fifty-users">99.900 HUF</span>
+                <span class="prefix-on-mobile hundred-users">106.900 HUF</span>
+                <span class="prefix-on-mobile two-hundred-and-fifty-users">329.900 HUF</span>
+                <span class="prefix-on-mobile five-hundred-users">533.900 HUF</span>
+
+            </main>
+
+            <footer class="hide-on-mobile">
+                <a class="ask-for-price-quote-btn" href="#">
+                    Ask for a price quote
+                </a>
+            </footer>
+
+        </section>
+
+        <section class="pricing-column-wrapper enterprise">
+
+            <header>
+
+                <h3 class="package-title server max-25">
+
+                    Enterprise
+
+                </h3>
+
+                <h4 class="price-from-label custom">
+
+                    Pricing
+                </h4>
+
+                <a class="ask-for-price-quote-btn outline" href="#">
+                        Ask for a price quote
+                    </a>
+
+            </header>
+
+            <main>
+
+                <span class="hide-on-mobile"></span>
+                <span class="prefix-on-mobile internal-servers" ><i class="material-icons passman-green-color">check_circle</i></span>
+                <span class="prefix-on-mobile cluster-env" ><i class="material-icons passman-green-color">check_circle</i></span>
+                <span class="prefix-on-mobile enhanced-support" ><i class="material-icons passman-green-color">check_circle</i></span>
+                <span class="prefix-on-mobile sla"><i class="material-icons passman-green-color">check_circle</i></span>
+                <span class="hide-on-mobile"></span>
+                <span class="hide-on-mobile"></span>
+                <span class="hide-on-mobile">Custom</span>
+                <span class="hide-on-mobile">Custom</span>
+                <span class="hide-on-mobile">Custom</span>
+                <span class="hide-on-mobile">Custom</span>
+                <span class="hide-on-mobile">Custom</span>
+
+            </main>
+
+            <footer class="hide-on-mobile">
+                <a class="ask-for-price-quote-btn outline" href="#">
+                    Ask for a price quote
+                </a>
+            </footer>
+
+
+        </section>
+    </article>
+</body>
+</html>
