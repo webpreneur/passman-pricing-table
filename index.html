@@ -274,6 +274,16 @@
 
         }
 
+        h4.price-from-label::after {
+
+            display: block;
+            content: "per month";
+            font-size: .8rem;
+            color: #777;
+            padding-top: 5px;
+
+        }
+
         h4.price-from-label.custom::before {
 
             display: block;
@@ -321,10 +331,42 @@
 
         }
 
-        @media only screen and (max-width: 1368px) {
-            body {
-                padding: 15px;
+        @media only screen and (max-width: 1600px) {
+
+            .package-title {
+
+                font-size: 1.2rem;
+
             }
+
+            .pricing-column-wrapper > header {
+
+                padding: 40px 10px;
+
+            }
+
+            a.ask-for-price-quote-btn {
+
+                font-size: 0.7rem;
+
+            }
+
+            .package-title::after {
+
+                font-size: .9rem;
+
+            }
+
+        }
+
+
+        @media only screen and (max-width: 1368px) {
+
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
             .pricing-column-details-wrapper {
                 display:none;
             }
@@ -346,7 +388,7 @@
             }
             .pricing-column-wrapper,
             .pricing-column-wrapper.cloud {
-                margin: 0 0 50px 0;
+                margin: 25px 15px;
                 border-bottom: 1px solid var(--color-gray-border);
             }
             .pricing-column-wrapper.cloud main,
@@ -414,34 +456,7 @@
         }
 
 
-        @media only screen and (max-width: 1600px) {
-
-            .package-title {
-
-                font-size: 1.2rem;
-
-            }
-
-            .pricing-column-wrapper > header {
-
-                padding: 40px 10px;
-
-            }
-
-            a.ask-for-price-quote-btn {
-
-                font-size: 0.7rem;
-
-            }
-
-            .package-title::after {
-
-                font-size: .9rem;
-
-            }
-
-        }
-
+     
     </style>
 
 </head>
