@@ -331,11 +331,18 @@
 
         }
 
+        .price-tag {
+            display: flex;
+        }
+
         .price-tag::after {
 
             display: block;
             content: "HUF/mo";
             padding-left: 5px;
+            align-self: center;
+            font-weight: normal;
+
         }
 
         @media only screen and (max-width: 1600px) {
@@ -507,19 +514,19 @@
 
             <header>
 
-                    <h3 class="package-title max-10">
+                <h3 class="package-title max-10">
 
-                        Cloud <i class="material-icons md-24">cloud</i>
+                    Cloud <i class="material-icons md-24">cloud</i>
 
-                    </h3>
+                </h3>
 
-                    <h4 class="price-from-label">
-                        8.900 HUF
-                    </h4>
+                <h4 class="price-from-label">
+                    8.900 HUF
+                </h4>
 
-                    <a class="ask-for-price-quote-btn outline" href="#">
-                        Ask for a price quote
-                    </a>
+                <a class="ask-for-price-quote-btn outline" href="#">
+                    Ask for a price quote
+                </a>
 
             </header>
 
@@ -531,12 +538,24 @@
                 <span class="prefix-on-mobile enhanced-support"><i class="material-icons passman-green-color">remove</i></span>
                 <span class="prefix-on-mobile sla"><i class="material-icons passman-green-color">remove</i></span>
                 <span class="hide-on-mobile"></span>
-                <span class="prefix-on-mobile ten-users price-tag">8.900</span>
-                <span class="prefix-on-mobile twenty-five-users price-tag">12.900</span>
-                <span class="prefix-on-mobile fifty-users price-tag">20.900</span>
-                <span class="prefix-on-mobile hundred-users price-tag">32.900</span>
-                <span class="prefix-on-mobile two-hundred-and-fifty-users price-tag">66.900</span>
-                <span class="prefix-on-mobile five-hundred-users price-tag">106.900</span>
+                <span class="prefix-on-mobile ten-users">
+                    <span class="price-tag">8.900</span>
+                </span>
+                <span class="prefix-on-mobile twenty-five-users">
+                    <span class="price-tag">12.900</span>
+                </span>
+                <span class="prefix-on-mobile fifty-users">
+                    <span class="price-tag">20.900</span>
+                </span>
+                <span class="prefix-on-mobile hundred-users">
+                    <span class="price-tag">32.900</span>
+                </span>
+                <span class="prefix-on-mobile two-hundred-and-fifty-users">
+                    <span class="price-tag">66.900</span>
+                </span>
+                <span class="prefix-on-mobile five-hundred-users">
+                    <span class="price-tag">106.900</span>
+                </span>
 
             </main>
 
@@ -546,31 +565,26 @@
                 </a>
             </footer>
 
-
         </section>
 
         <section class="pricing-column-wrapper standard">
 
-                <header>
+            <header>
 
+                <h3 class="package-title server max-10">
+                    Standard
+                </h3>
 
-                    <h3 class="package-title server max-10">
+                <h4 class="price-from-label">
+                    8.900 HUF
+                </h4>
 
-                        Standard
+                <a class="ask-for-price-quote-btn outline" href="#">
+                    Ask for a price quote
+                </a>
 
-                    </h3>
+            </header>
 
-                    <h4 class="price-from-label">
-
-                        8.900 HUF
-                    </h4>
-
-                    <a class="ask-for-price-quote-btn outline" href="#">
-                        Ask for a price quote
-                    </a>
-
-
-                </header>
             <main>
 
                 <span class="hide-on-mobile"></span>
@@ -579,11 +593,21 @@
                 <span class="prefix-on-mobile enhanced-support"><i class="material-icons passman-green-color">remove</i></span>
                 <span class="prefix-on-mobile sla"><i class="material-icons passman-green-color">remove</i></span>
                 <span class="hide-on-mobile"></span>
-                <span class="prefix-on-mobile price-tag ten-users">8.900</span>
-                <span class="prefix-on-mobile price-tag twenty-five-users">20.900</span>
-                <span class="prefix-on-mobile price-tag fifty-users">33.900</span>
-                <span class="prefix-on-mobile price-tag hundred-users">52.900</span>
-                <span class="prefix-on-mobile price-tag two-hundred-and-fifty-users">107.900</span>
+                <span class="prefix-on-mobile ten-users">
+                    <span class="price-tag">8.900</span>
+                </span>
+                <span class="prefix-on-mobile twenty-five-users">
+                    <span class="price-tag">20.900</span>
+                </span>
+                <span class="prefix-on-mobile fifty-users">
+                    <span class="price-tag">33.900</span>
+                </span>
+                <span class="prefix-on-mobile hundred-users">
+                    <span class="price-tag">52.900</span>
+                </span>
+                <span class="prefix-on-mobile two-hundred-and-fifty-users">
+                    <span class="price-tag">107.900</span>
+                </span>
                 <span class="hide-on-mobile"></span>
 
             </main>
@@ -594,29 +618,28 @@
                 </a>
             </footer>
 
-
         </section>
 
         <section class="pricing-column-wrapper premium">
 
-                <header>
+            <header>
 
-                    <h3 class="package-title server max-25">
+                <h3 class="package-title server max-25">
 
-                        Premium
+                    Premium
 
-                    </h3>
+                </h3>
 
-                    <h4 class="price-from-label">
+                <h4 class="price-from-label">
 
-                        59.900 HUF
-                    </h4>
+                    59.900 HUF
+                </h4>
 
-                    <a class="ask-for-price-quote-btn" href="#">
-                        Ask for a price quote
-                    </a>
+                <a class="ask-for-price-quote-btn" href="#">
+                    Ask for a price quote
+                </a>
 
-                </header>
+            </header>
 
             <main>
 
@@ -627,11 +650,21 @@
                 <span class="prefix-on-mobile sla"><i class="material-icons passman-green-color">remove</i></span>
                 <span class="hide-on-mobile"></span>
                 <span class="hide-on-mobile"></span>
-                <span class="prefix-on-mobile price-tag twenty-five-users">59.900</span>
-                <span class="prefix-on-mobile price-tag fifty-users">99.900</span>
-                <span class="prefix-on-mobile price-tag hundred-users">106.900</span>
-                <span class="prefix-on-mobile price-tag two-hundred-and-fifty-users">329.900</span>
-                <span class="prefix-on-mobile price-tag five-hundred-users">533.900</span>
+                <span class="prefix-on-mobile twenty-five-users">
+                    <span class="price-tag">59.900</span>
+                </span>
+                <span class="prefix-on-mobile fifty-users">
+                    <span class="price-tag">99.900</span>
+                </span>
+                <span class="prefix-on-mobile hundred-users">
+                    <span class="price-tag">106.900</span>
+                </span>
+                <span class="prefix-on-mobile two-hundred-and-fifty-users">
+                    <span class="price-tag">329.900</span>
+                </span>
+                <span class="prefix-on-mobile five-hundred-users">
+                    <span class="price-tag">533.900</span>
+                </span>
 
             </main>
 
