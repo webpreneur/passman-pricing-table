@@ -23,8 +23,11 @@
         }
 
         body {
-            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             padding: 100px;
+            margin: 0;
             width: 100%;
             font-family: 'Raleway', sans-serif;
             color: var(--color-font-general);
@@ -39,8 +42,59 @@
             color: var(--color-passman-green);
         }
 
+        .hidden {
+            display: none;
+        }
+
+        .passman-pricing-table {
+
+            width: 100%;
+            max-width: 1160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .host-chooser-container {
+            display: flex;
+            padding-bottom: 100px;
+            width: 100%;
+        }
+
+        .host-chooser-container > a {
+
+            font-weight: bold;
+            text-decoration: none;
+            padding: 20px;
+            color: unset;
+            cursor: pointer;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            transition: all 150ms linear;
+            flex-grow: 1;
+            text-align: center;
+
+        }
+
+        .host-chooser-container > a:hover {
+
+            color: var(--color-passman-green);
+            border-bottom: 3px solid var(--color-passman-green);
+
+        }
+
+        .host-chooser-container > a.active {
+
+            background: none;
+            background: #efefef;
+            border-bottom: 3px solid var(--color-passman-green);
+
+        }
+
         .pricing-wrapper {
 
+            width: 100%;
             display: flex;
             flex-wrap: wrap;
             align-items: flex-start;
@@ -116,7 +170,6 @@
 
         }
 
-        .pricing-column-wrapper:nth-of-type(3) > main > span,
         .pricing-column-wrapper:nth-of-type(2) > footer,
         .pricing-column-wrapper:nth-of-type(3) > footer {
 
@@ -163,10 +216,6 @@
 
             position: relative;
 
-        }
-
-        .pricing-column-wrapper.cloud {
-            margin-right: 30px;
         }
 
         .pricing-column-wrapper.premium > header {
@@ -473,6 +522,13 @@
 </head>
 <body>
 
+    <main class="passman-pricing-table">
+
+    <section class="host-chooser-container">
+        <a id="cloudTab">Cloud Package</a>
+        <a id="serverTab" class="active">Server Packages</a>
+    </section>
+
     <article class="pricing-wrapper">
 
         <section class="pricing-column-details-wrapper">
@@ -510,7 +566,7 @@
 
         </section>
 
-        <section class="pricing-column-wrapper cloud">
+        <section id="cloudCol" class="pricing-column-wrapper cloud hidden">
 
             <header>
 
@@ -567,7 +623,7 @@
 
         </section>
 
-        <section class="pricing-column-wrapper standard">
+        <section id="srvStandardCol" class="pricing-column-wrapper standard">
 
             <header>
 
@@ -620,7 +676,7 @@
 
         </section>
 
-        <section class="pricing-column-wrapper premium">
+        <section id="srvPremiumCol" class="pricing-column-wrapper premium">
 
             <header>
 
@@ -676,7 +732,7 @@
 
         </section>
 
-        <section class="pricing-column-wrapper enterprise">
+        <section id="srvEnterpriseCol" class="pricing-column-wrapper enterprise">
 
             <header>
 
@@ -722,6 +778,45 @@
 
 
         </section>
+
     </article>
+
+    </main>
+
+    <script>
+
+
+        const cloudBtn = document.getElementById('cloudTab'),
+            serverBtn = document.getElementById('serverTab'),
+            cloudCol = document.getElementById('cloudCol'),
+            standardCol = document.getElementById('srvStandardCol'),
+            premiumCol = document.getElementById('srvPremiumCol'),
+            enterpriseCol = document.getElementById('srvEnterpriseCol');
+
+        cloudBtn.addEventListener('click', () => {
+
+            cloudBtn.classList.add('active');
+            serverBtn.classList.remove('active');
+
+            cloudCol.classList.remove('hidden');
+            standardCol.classList.add('hidden');
+            premiumCol.classList.add('hidden');
+            enterpriseCol.classList.add('hidden');
+
+        });
+        serverBtn.addEventListener('click', () => {
+
+            cloudBtn.classList.remove('active');
+            serverBtn.classList.add('active');
+
+            cloudCol.classList.add('hidden');
+            standardCol.classList.remove('hidden');
+            premiumCol.classList.remove('hidden');
+            enterpriseCol.classList.remove('hidden');
+
+        })
+
+    </script>
+
 </body>
 </html>
